@@ -7,13 +7,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Detalhes from "./Detalhes";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-
 const Stack = createStackNavigator();
 export default function Home(){
 return(
     <NavigationContainer independent={true}>
         <Stack.Navigator>
-            <Stack.Screen name="ListarProdutos" component={ListarProdutos}/>
+            <Stack.Screen name="ListarProdutos" component={ListarProdutos} options = {{headerShown:false}}/>
             <Stack.Screen name="Detalhes" component={Detalhes}/>
         </Stack.Navigator>
     </NavigationContainer>
@@ -40,13 +39,13 @@ function ListarProdutos({navigation}){
    
     return(
         <View style={styles.container}>
-            <Text>Tela Home</Text>
+           
                 <View style={styles.display}>
             {
                 produtos.map((item,ix)=>(
                     <TouchableOpacity onPress={()=>{
                         navigation.navigate("Detalhes",{idproduto:`${item._id}`})
-                    }}>
+                    }} style={styles.acesso}>
                     <View key={item.id} style={styles.cxproduto}>
                         
                         <Image source={{uri:`${item.foto}`}} style={styles.foto}/>
@@ -61,5 +60,5 @@ function ListarProdutos({navigation}){
             }
                 </View>
         </View>
-    )
+    );
 }

@@ -21,8 +21,8 @@ export const styles = StyleSheet.create({
     },
     cxproduto:{
         backgroundColor:'white',
-        width:"47%",
-        margin:6,
+        width:195,
+        margin:2,
         shadowColor:'#000',
         shadowOpacity:0.2,
         shadowRadius:10,
@@ -33,5 +33,28 @@ export const styles = StyleSheet.create({
     display:{
         flexDirection:'row',
         flexWrap:'wrap',
+    },
+    acesso:{
+        
+        width:195,
+        margin:6,
+    },
+    fotodetalhe:{
+        width:400,
+        height:300,
+    },
+    btncarrinho:{
+        backgroundColor:'red',
+        width:300,
+        marginLeft:60,
+        marginRight:60,
+        padding:10,
+        marginTop:50,
+        borderRadius:20,
+    },
+    txtcarrinho:{
+        color:'#fff',
+        fontWeight:'bold',
+        textAlign:'center',
     }
 })
