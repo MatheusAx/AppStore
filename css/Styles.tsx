@@ -56,5 +56,29 @@ export const styles = StyleSheet.create({
         color:'#fff',
         fontWeight:'bold',
         textAlign:'center',
+    },
+    input:{
+        width:'100%',
+        padding:10,
+        marginBottom:5,
+        borderBottomColor:'silver',
+        borderBottomWidth:1,
+        marginLeft: 'auto',
+        marginRight: 'auto' 
+    },
+    btncadastro:{
+        backgroundColor:'#0f0',
+        width:100,
+        height:100,
+        borderRadius:50,
+        marginRight:'auto',
+        marginLeft: 'auto',
+        marginTop:50,
+        paddingTop:40,
+        shadowColor:'black',
+        textShadowOffset:{width:5, height:5},
+        shadowOpacity:0.9,
+        shadowRadius:5,
+        elevation:10
     }
 })

@@ -5,18 +5,18 @@ import {styles} from "../css/Styles";
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Detalhes from "./Detalhes";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 const Stack = createStackNavigator();
 export default function Home(){
-return(
-    <NavigationContainer independent={true}>
-        <Stack.Navigator>
-            <Stack.Screen name="ListarProdutos" component={ListarProdutos} options = {{headerShown:false}}/>
-            <Stack.Screen name="Detalhes" component={Detalhes}/>
-        </Stack.Navigator>
-    </NavigationContainer>
-)
+    return(
+        <NavigationContainer independent={true}>
+            <Stack.Navigator>
+                <Stack.Screen name="ListarProdutos" component={ListarProdutos}/>
+                <Stack.Screen name="Detalhes" component={Detalhes}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
 
 function ListarProdutos({navigation}){
@@ -34,19 +34,20 @@ function ListarProdutos({navigation}){
         .then((response)=>response.json())
         .then((resultado)=>setProdutos(resultado.rs))
         .catch((erro)=>console.error(`Erro ao tentar carregar os produtos->${erro}`));
-   },[])
+   })
 
    
     return(
         <View style={styles.container}>
-           
+           <ScrollView horizontal= {false}>
                 <View style={styles.display}>
             {
                 produtos.map((item,ix)=>(
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity  key={item._id} onPress={()=>{
                         navigation.navigate("Detalhes",{idproduto:`${item._id}`})
                     }} style={styles.acesso}>
-                    <View key={item.id} style={styles.cxproduto}>
+                    
+                    <View style={styles.cxproduto}>
                         
                         <Image source={{uri:`${item.foto}`}} style={styles.foto}/>
                         
@@ -59,6 +60,6 @@ function ListarProdutos({navigation}){
                 ))
             }
                 </View>
+                </ScrollView>
         </View>
-    );
-}
+    )}

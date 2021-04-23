@@ -4,6 +4,7 @@ import {ipserver} from "../config/settings";
 import {Image,TouchableOpacity} from "react-native";
 import {styles} from "../css/Styles";
 import { AntDesign } from "@expo/vector-icons";
+import { ScrollView } from "react-native-gesture-handler";
 export default function Carrinho(){
 //Vamos construir uma estrutura para carregar
 //os dados sobre os produtos que virão do banco
@@ -15,7 +16,7 @@ const[produtos,setProdutos] = React.useState([]);
 // ao abrir a tela home. Ele será responsável
 //por carregar os dados do servidor
 React.useEffect(()=>{
-     fetch(`${ipserver}produto/listar`)
+     fetch(`${ipserver}carrinho/itens`)
      .then((response)=>response.json())
      .then((resultado)=>setProdutos(resultado.rs))
      .catch((erro)=>console.error(`Erro ao tentar carregar os produtos->${erro}`));
@@ -23,13 +24,13 @@ React.useEffect(()=>{
 
  return(
      <View style={styles.container}>
-        
+             <ScrollView horizontal= {false}>
              <View style={styles.display}>
+             
          {
              produtos.map((item,ix)=>(
                 
-                
-                 <View key={item.id} style={styles.cxproduto}>
+                 <View key={item._id} style={styles.cxproduto}>
                      
                      <Image source={{uri:`${item.foto}`}} style={styles.foto}/>
                      
@@ -38,20 +39,21 @@ React.useEffect(()=>{
                      <Text style={styles.preco}> {item.preco}</Text>
 
                      <TouchableOpacity onPress={()=>{
-                         removerDoCarrinho(item.id);
+                         removerDoCarrinho(item._id);
                      }} style={styles.btncarrinho}>
 
                          <Text style={styles.txtcarrinho}>
                              Remover <AntDesign name="delete" size={20} color="white"/>
                          </Text>
+                         
                          </TouchableOpacity>
 
                  </View>
                  
-                
              ))
          }
              </View>
+             </ScrollView>
      </View>
  );
 }
@@ -66,6 +68,4 @@ function removerDoCarrinho(id){
     })
     .then(()=>alert("Item removido"))
     .catch((error)=>alert(`Erro ao tentar remover o item ${error}`));
-
-    })
-}
+    }

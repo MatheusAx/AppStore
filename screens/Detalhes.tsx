@@ -1,6 +1,6 @@
 import * as React from "react";
 import {View,Text,Image} from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 import {ipserver} from "../config/settings";
 import {styles} from "../css/Styles";
 import {AntDesign} from "@expo/vector-icons";
@@ -33,6 +33,7 @@ const{idproduto}= route.params;
             
                     <View style={styles.cxproduto}>
                         
+                        <Image source={{uri:`${produtos.foto}`}} style={styles.foto}/>
                         <Image source={{uri:`${produtos.foto}`}} style={styles.fotodetalhe}/>
                         
                         <Text style={styles.nomeproduto}> {produtos.nomeproduto}</Text>
