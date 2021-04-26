@@ -39,9 +39,20 @@ export const styles = StyleSheet.create({
         width:195,
         margin:6,
     },
-    fotodetalhe:{
-        width:400,
-        height:300,
+    //fotodetalhe:{
+    //    width:100,
+    //    height:50,
+    //},
+    cxproduto1:{
+        backgroundColor:'white',
+        width:"48%",
+        margin:2,
+        shadowColor:'#000',
+        shadowOpacity:0.2,
+        shadowRadius:10,
+        shadowOffset:{width:10,height:10},
+        elevation: 5,
+        padding:4,
     },
     btncarrinho:{
         backgroundColor:'red',
@@ -80,5 +91,15 @@ export const styles = StyleSheet.create({
         shadowOpacity:0.9,
         shadowRadius:5,
         elevation:10
+    },
+    btncarrinho1:{
+        alignContent:'center',
+        backgroundColor:'red',
+        width:150,
+        marginLeft:20,
+        padding:10,
+        marginTop:50,
+        borderRadius:20,
     }
+
 })

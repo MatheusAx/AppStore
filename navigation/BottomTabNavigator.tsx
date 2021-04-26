@@ -16,8 +16,9 @@ import Home from '../screens/Home';
 import Cadastro from '../screens/Cadastro';
 import Perfil from '../screens/Perfil';
 import Carrinho from '../screens/Carrinho';
+import Login from '../screens/Login';
 
-import { BottomTabParamList, TabOneParamList, TabTwoParamList, HomeParamList, CadastroParamList, CarrinhoParamList, PerfilParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, HomeParamList, CadastroParamList, CarrinhoParamList, PerfilParamList, LoginParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -56,6 +57,14 @@ export default function BottomTabNavigator() {
         component={PerfilNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+        }}
+      />
+
+<BottomTab.Screen
+        name="Login"
+        component={LoginNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="login" color={color} />,
         }}
       />
 
@@ -152,5 +161,19 @@ function PerfilNavigator() {
         options={{ headerTitle: 'Thrift Store | Perfil', headerTitleAlign:'center' }}
       />
     </PerfilStack.Navigator>
+  );
+}
+
+const LoginStack = createStackNavigator<LoginParamList>();
+
+function LoginNavigator() {
+  return (
+    <LoginStack.Navigator>
+      <LoginStack.Screen
+        name="Login"
+        component={Login}
+        options={{ headerTitle: 'Thrift Store | Login', headerTitleAlign:'center' }}
+      />
+    </LoginStack.Navigator>
   );
 }

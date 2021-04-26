@@ -4,7 +4,7 @@ import {ipserver} from "../config/settings";
 import {Image,TouchableOpacity} from "react-native";
 import {styles} from "../css/Styles";
 import { AntDesign } from "@expo/vector-icons";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native";
 export default function Carrinho(){
 //Vamos construir uma estrutura para carregar
 //os dados sobre os produtos que virão do banco
@@ -30,7 +30,7 @@ React.useEffect(()=>{
          {
              produtos.map((item,ix)=>(
                 
-                 <View key={item._id} style={styles.cxproduto}>
+                 <View key={item._id} style={styles.cxproduto1}>
                      
                      <Image source={{uri:`${item.foto}`}} style={styles.foto}/>
                      
@@ -40,7 +40,7 @@ React.useEffect(()=>{
 
                      <TouchableOpacity onPress={()=>{
                          removerDoCarrinho(item._id);
-                     }} style={styles.btncarrinho}>
+                     }} style={styles.btncarrinho1}>
 
                          <Text style={styles.txtcarrinho}>
                              Remover <AntDesign name="delete" size={20} color="white"/>

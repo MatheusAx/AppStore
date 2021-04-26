@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native";
 import {ipserver} from "../config/settings";
 import {styles} from "../css/Styles";
 import {AntDesign} from "@expo/vector-icons";
+import { ScrollView } from "react-native";
 
 export default function Detalhes({route}){
 
@@ -29,6 +30,7 @@ const{idproduto}= route.params;
    
     return(
         <View style={styles.container}>
+                <ScrollView horizontal= {false}>
                 <View style={styles.display}>
             
                     <View style={styles.cxproduto}>
@@ -56,7 +58,7 @@ const{idproduto}= route.params;
                     </TouchableOpacity>
             
                 </View>
-
+                </ScrollView>
         </View>
     )
 }

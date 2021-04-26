@@ -14,12 +14,12 @@ export default {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'one',
+              TabOneScreen: 'One',
             },
           },
           TabTwo: {
             screens: {
-              TabTwoScreen: 'two',
+              TabTwoScreen: 'Two',
             },
           },
           Home:{
@@ -41,6 +41,11 @@ export default {
           Perfil:{
             screens: {
               Perfil: 'Perfil'
+            },
+          },
+          Login:{
+            screens: {
+              Login: 'Login'
             },
           },
 
